@@ -28,3 +28,9 @@
 - implemented sign out feature
 - update profile api call
 - fetch movies from tmdb movies
+- redirect user to /browse and / based on login status
+- unsubscribe to the onAuthStateChanged callback
+- add variables in a seperate constants file
+- register tmdb api ad get movies list
+- get now playing movies list
+- render the main container with video and title

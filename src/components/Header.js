@@ -1,34 +1,61 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { onAuthStateChanged } from "firebase/auth";
+import { addUser, removeUser } from "../utils/userSlice";
+import { netflixAvatar, netflixLogo } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
-  console.log(user , " is the user")
+
+
   const handleSignout = () => {
     signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-        navigate("/");
-      })
+     .then(() => {})
       .catch((error) => {
-        // An error happened.
         navigate("/error");
       });
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        navigate("/browse")
+      } else {
+        dispatch(removeUser());
+        navigate("/")
+      }
+    });
+    // unsubscribe when component unmoounts
+    return ()=> {
+      unsubscribe();
+    }
+  }, []);
+
+
   return (
-    <div className="absolute top-0 px-8 bg-gradient-to-b from-black z-10 flex justify-between w-[100%] items-center">
+    <div className="absolute top-0 px-8 bg-gradient-to-b from-black z-20 flex justify-between w-[100%] items-center z-10">
       <img
-        src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+        src={netflixLogo}
         alt="site-logo"
         className="w-44 h-20"
       />
       <div className="flex items-center">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+          src={netflixAvatar}
           alt="user-icon"
           className="w-10 h-10"
         />

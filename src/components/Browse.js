@@ -1,17 +1,29 @@
-import React from 'react';
-import Header from '../components/Header';
-import { useSelector } from 'react-redux';
-
+import React from "react";
+import Header from "../components/Header";
+import useFetchMovies from "../customHooks/useFetchMovies";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
-  const user = useSelector((store) => store.user);
+  useFetchMovies();
 
-  
   return (
     <div>
-      <Header/>
-    </div>
-  )
-}
+      <Header />
 
-export default Browse
+      {/*
+      primary container -> 
+        video background
+        video title
+      secindsry container-> 
+        as movie lists
+        movie lists have movie cards
+      */}
+      
+      <MainContainer/>
+      <SecondaryContainer/>
+    </div>
+  );
+};
+
+export default Browse;
