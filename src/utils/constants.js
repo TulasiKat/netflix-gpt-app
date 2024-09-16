@@ -11,4 +11,9 @@ export const API_OPTIONS = {
   };
 
 export const nowPlayingMoviesApi = "https://api.themoviedb.org/3/movie/now_playing?&page=1";
+export const popularMoviesApi = "https://api.themoviedb.org/3/movie/popular?&page=1";
+export const topRatedMoviesApi = "https://api.themoviedb.org/3/movie/top_rated?&page=1";
+export const upcomingMoviesApi = "https://api.themoviedb.org/3/movie/upcoming?&page=1";
 export const youtubeUrl = "https://www.youtube.com/embed/";
+export const tmdbImageCdn = "https://image.tmdb.org/t/p/w500/";
+
