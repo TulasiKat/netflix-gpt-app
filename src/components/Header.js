@@ -10,6 +10,7 @@ import { gptSearchStatus } from "../utils/gptSlice";
 import { supportedLanguages } from "../utils/constants";
 import { setLanguage } from "../utils/languageSlice";
 import { LanguageConstants } from "../utils/LanguageConstants";
+import { addSearchText } from "../utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Header = () => {
   };
 
   const handleGptSearchClick = () => {
+    dispatch(addSearchText(""))
     dispatch(gptSearchStatus());
   };
 
@@ -71,7 +73,7 @@ const Header = () => {
       <div className="flex items-center">
       {gptSearchStatusValue &&  <select onChange={handleLanguageChange} id="languageSelector">
             {supportedLanguages.map((each) => (
-              <option value={each.id} className="text-xs">
+              <option value={each.id} className="text-xs" key={each.id}>
                 {each.name}
               </option>
             ))}

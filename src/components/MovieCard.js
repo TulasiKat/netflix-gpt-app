@@ -3,6 +3,7 @@ import { tmdbImageCdn } from '../utils/constants';
 
 const MovieCard = (props) => {
     const {details} = props;
+    if (!details.poster_path) return;
 
   return (
     <div className='w-48 pr-4'>
