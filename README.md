@@ -34,3 +34,7 @@
 - register tmdb api ad get movies list
 - get now playing movies list
 - render the main container with video and title
+- built secondary container with movie lists
+- gpt search feature
+- gpt search bar
+- added multi language support in gpt search page.*

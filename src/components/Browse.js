@@ -3,27 +3,24 @@ import Header from "../components/Header";
 import useFetchMovies from "../customHooks/useFetchMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import GPTSearch from "./GPTSearch";
+import { useSelector } from "react-redux";
+
 
 const Browse = () => {
   useFetchMovies();
-
+  const gptSearchStatus = useSelector(store=>store.gptSearch.showGptStatus);
+ 
   return (
     <div>
       <Header />
 
-      {/*
-      primary container -> 
-        video background
-        video title
-      secindsry container-> 
-        as movie lists
-        movie lists have movie cards
-      */}
-      
-      <MainContainer/>
-      <SecondaryContainer/>
+     {gptSearchStatus ? <GPTSearch /> : <>   <MainContainer />
+      <SecondaryContainer /></>}
+   
     </div>
   );
 };
 
 export default Browse;
+

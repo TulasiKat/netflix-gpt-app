@@ -17,3 +17,4 @@ export const upcomingMoviesApi = "https://api.themoviedb.org/3/movie/upcoming?&p
 export const youtubeUrl = "https://www.youtube.com/embed/";
 export const tmdbImageCdn = "https://image.tmdb.org/t/p/w500/";
 
+export const supportedLanguages = [{name: "English" , id: "ENGLISH"} , {name: "Hindi" , id: "HINDI"} , {name: "Spanish" , id: "SPANISH"}];
