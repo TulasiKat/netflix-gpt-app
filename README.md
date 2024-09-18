@@ -38,3 +38,5 @@
 - gpt search feature
 - gpt search bar
 - added multi language support in gpt search page.*
+- added the search sugestions section, handled the no-movie scenario when there is no movie associated with the movie card.
+- added trailer playing scenario when clicked on movie card.

@@ -6,7 +6,7 @@ const MovieList = (props) => {
 
   return (
     <div className="p-4 bg-transparent">
-      <h2 className="text-3xl font-bold py-3 text-white">{title}</h2>
+      <h2 className="text-xl md:text-3xl font-bold py-3 text-white">{title}</h2>
       <div className="flex overflow-x-scroll">
         {/**
          * movie cards

@@ -1,5 +1,6 @@
 export const netflixLogo =
   "https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png";
+  export const netflixFavicon = "https://gogeticons.com/frontend/web/icons/data/1/6/9/0/5/3/logo_netflix_icon_512.png";
 export const netflixAvatar =
   "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png";
 export const homeBanner =
